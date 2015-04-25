@@ -1,2 +1,3 @@
 .DS_Store
 /salt-cloud/cloud.providers.d/digitalocean.conf
+/salt-cloud/cloud.providers.d/qingcloud.conf
