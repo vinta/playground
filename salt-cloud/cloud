@@ -1,0 +1,4 @@
+query.selection:
+  - id
+  - state
+  - private_ips

@@ -1,0 +1,6 @@
+my-qingcloud:
+  provider: qingcloud
+  access_key_id: YOUR_VALUE
+  secret_access_key: YOUR_VALUE
+  zone: pek2
+  key_filename: /Users/vinta/streetvoice-qingcloud.pem
