@@ -1,0 +1,7 @@
+my-digitalocean:
+  provider: digital_ocean
+  personal_access_token: YOUR_VALUE
+  client_key: YOUR_VALUE
+  api_key: YOUR_VALUE
+  ssh_key_file: /root/consul/id_rsa
+  ssh_key_name: Vinta-Air
