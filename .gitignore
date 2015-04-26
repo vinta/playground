@@ -1,3 +1,5 @@
 .DS_Store
+/consul/id_rsa
+/consul/salt_config/cloud.providers.d/digitalocean.conf
 /salt-cloud/cloud.providers.d/digitalocean.conf
 /salt-cloud/cloud.providers.d/qingcloud.conf

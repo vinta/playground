@@ -1,0 +1,13 @@
+{
+  "service": {
+    "name": "web",
+    "port": 80,
+    "tags": [
+        "haproxy", "load_balancer"
+    ],
+    "check": {
+      "script": "curl localhost > /dev/null 2>&1",
+      "interval": "1s"
+    }
+  }
+}

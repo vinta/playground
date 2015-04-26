@@ -1,0 +1,6 @@
+{
+  "service": {
+    "name": "salt-master",
+    "port": 4505
+  }
+}

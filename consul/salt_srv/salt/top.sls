@@ -3,13 +3,17 @@ base:
     - common
 
   'master':
-    - consul.server
+    - salt.consul
 
   'play1':
-    - consul.client
+    - haproxy
+    - haproxy.consul
+    - consul.web_ui
 
   'play2':
-    - consul.client
+    - nginx
+    - nginx.consul
 
   'play3':
-    - consul.client
+    - nginx
+    - nginx.consul
