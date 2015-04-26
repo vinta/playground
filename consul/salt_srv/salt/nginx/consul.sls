@@ -1,5 +1,5 @@
 include:
-  - consul.client
+  - consul.common
 
 nginx-consul-service-file:
   file.managed:

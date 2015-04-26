@@ -1,6 +1,0 @@
-{
-  "service": {
-    "name": "memcache",
-    "port": 11211
-  }
-}

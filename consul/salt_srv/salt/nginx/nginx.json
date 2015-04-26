@@ -1,6 +1,6 @@
 {
   "service": {
-    "name": "nginx-{{ grains['id'] }}",
+    "name": "nginx",
     "port": 80,
     "check": {
       "script": "curl localhost > /dev/null 2>&1",

@@ -1,5 +1,5 @@
 include:
-  - consul.client
+  - consul.common
 
 redis-consul-service-file:
   file.managed:

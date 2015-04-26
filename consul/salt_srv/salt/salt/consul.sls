@@ -1,5 +1,5 @@
 include:
-  - consul.client
+  - consul.common
 
 salt-master-consul-service-file:
   file.managed:

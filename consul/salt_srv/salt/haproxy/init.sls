@@ -15,18 +15,18 @@ haproxy-packages:
     - require:
       - pkgrepo: haproxy-ppa
 
-haproxy-config:
-  file.managed:
-    - template: jinja
-    - name: /etc/haproxy/haproxy.cfg
-    - source: salt://haproxy/haproxy.cfg
-    - require:
-      - pkg: haproxy-packages
+# haproxy-config:
+#   file.managed:
+#     - template: jinja
+#     - name: /etc/haproxy/haproxy.cfg
+#     - source: salt://haproxy/haproxy.cfg
+#     - require:
+#       - pkg: haproxy-packages
 
-haproxy-service:
-  service.running:
-    - name: haproxy
-    - enable: True
-    - reload: True
-    - watch:
-      - file: haproxy-config
+# haproxy-service:
+#   service.running:
+#     - name: haproxy
+#     - enable: True
+#     - reload: True
+#     - watch:
+#       - file: haproxy-config
