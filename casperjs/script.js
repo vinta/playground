@@ -1,6 +1,6 @@
 var casper = require('casper').create({
   pageSettings: {
-    loadImages: false,
+    loadImages: true,
     loadPlugins: false
   },
   logLevel: 'debug',
@@ -14,7 +14,11 @@ var page = require('webpage').create();
 var cookieFile = 'cookies.json';
 
 var saveSessionCookie = function() {
-  fs.write(cookieFile, JSON.stringify(phantom.cookies), 'w');
+  try {
+    fs.statSync(cookieFile);
+  } catch (e) {
+    fs.write(cookieFile, JSON.stringify(phantom.cookies), 'w');
+  }
 }
 
 if (fs.isFile(cookieFile)) {
@@ -37,11 +41,19 @@ casper.start(loginUrl, function() {
 
   this.capture('login.png');
 
+  var data = {
+    form_email: 'xxx',
+    form_password: 'xxx'
+  };
+
+  // 可能會被豆瓣要求輸入驗證碼
+  // 可以用 casperjs script.js --remote-debugger-port=9000
+  // 先打開 login.png 看驗證碼是什麼
+  // 到 http://127.0.0.1:9000/ 的 console 手動輸入驗證碼
+  // data['captcha-solution'] = '123';
+
   this.waitForSelector('form#lzform');
-  this.fill('form#lzform', {
-       form_email: 'xxx',
-       form_password: 'xxx'
-  }, true);
+  this.fill('form#lzform', data, true);
 });
 
 casper.then(function() {
