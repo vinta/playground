@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kubedemo-api
+data:
+  MONGODB_URL: mongodb://mongo-re0-0.default.svc.cluster.local,mongo-rs0-1.default.svc.cluster.local,mongo-rs0-2.default.svc.cluster.local/kubedemo?appname=kubedemo&replicaSet=rs0&readPreference=secondaryPreferred&connect=false&connectTimeoutMS=5000
+  REDIS_CACHE_URL: redis://redis-cache.default.svc.cluster.local/0
+  CELERY_BROKER_URL: redis://redis-queue.default.svc.cluster.local/0

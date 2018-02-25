@@ -16,6 +16,6 @@ def index():
     return f'You hit "{hostname}" at {now}'
 
 
-@app.route('/hello')
+@app.route('/health')
 def hello():
-    return 'Hello, World'
+    return 'OK'
