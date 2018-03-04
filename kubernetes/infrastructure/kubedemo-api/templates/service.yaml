@@ -1,10 +1,34 @@
-apiVersion: v1
 kind: Service
+apiVersion: v1
 metadata:
   name: kubedemo-api-svc
+  labels:
+    app: nginx
 spec:
+  type: NodePort
   selector:
     name: kubedemo-api
   ports:
-  - port: 80
-    targetPort: http
+    - name: http
+      port: 80
+      targetPort: 80
+      protocol: TCP
+    - name: https
+      port: 443
+      targetPort: 443
+      protocol: TCP
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: test-ingress
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /testpath
+        backend:
+          serviceName: test
+          servicePort: 80

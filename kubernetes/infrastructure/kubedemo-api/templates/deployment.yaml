@@ -1,13 +1,8 @@
-apiVersion: apps/v1
 kind: Deployment
+apiVersion: apps/v1
 metadata:
   name: kubedemo-api
 spec:
-  strategy:
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
-    type: RollingUpdate
   replicas: 2
   selector:
     matchLabels:
@@ -16,6 +11,9 @@ spec:
     metadata:
       labels:
         name: kubedemo-api
+        app: flask
+      annotations:
+        author: vinta
     spec:
       containers:
       - name: kubedemo-api
@@ -24,15 +22,15 @@ spec:
         - configMapRef:
             name: kubedemo-api
         ports:
-        - name: kubedemo-api
+        - name: http
           containerPort: 8000
         resources:
           requests:
-            cpu: "1000m"
-            memory: "1000Mi"
+            cpu: 1
+            memory: 1G
           limits:
-            cpu: "1000m"
-            memory: "1000Mi"
+            cpu: 2
+            memory: 2G
         livenessProbe:
           httpGet:
             path: /health
