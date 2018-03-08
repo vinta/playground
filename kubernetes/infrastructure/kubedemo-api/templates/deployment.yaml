@@ -6,14 +6,13 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      name: kubedemo-api
+      app: kubedemo-api
   template:
     metadata:
       labels:
-        name: kubedemo-api
-        app: flask
+        app: kubedemo-api
       annotations:
-        author: vinta
+        author: https://github.com/vinta
     spec:
       containers:
       - name: kubedemo-api
@@ -26,11 +25,11 @@ spec:
           containerPort: 8000
         resources:
           requests:
-            cpu: 1
-            memory: 1G
+            cpu: "0.5"
+            memory: "0.5G"
           limits:
-            cpu: 2
-            memory: 2G
+            cpu: "1"
+            memory: "1G"
         livenessProbe:
           httpGet:
             path: /health

@@ -1,4 +1,4 @@
-FROM python:3.6.4-alpine3.6 AS builder
+FROM python:3.6.4-alpine3.7 AS builder
 
 ENV PIP_DISABLE_PIP_VERSION_CHECK=1
 
@@ -18,7 +18,7 @@ RUN pip install --user -r requirements.txt && \
 
 ###
 
-FROM python:3.6.4-alpine3.6
+FROM python:3.6.4-alpine3.7
 
 ENV FLASK_APP=app.py
 
@@ -26,6 +26,7 @@ WORKDIR /usr/src/app/
 
 RUN apk add --no-cache --virtual .run-deps \
     ca-certificates \
+    curl \
     openssl \
     zlib
 

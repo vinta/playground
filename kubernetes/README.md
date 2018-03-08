@@ -1,15 +1,8 @@
 # kubedemo
 
-## Docker
-
 ```bash
-$ docker build --rm -t vinta/kubedemo-backend:v1 .
-$ docker run -i -t -p 8000:8000 vinta/kubedemo-backend:v1
+$ gcloud config set project albedo-157516 && \
+  export PROJECT_ID="$(gcloud config get-value project -q)"
 
-$ docker build --rm -t vinta/kubedemo-backend:v2 .
-$ docker run -i -t -p 8000:8000 vinta/kubedemo-backend:v2
+$ docker build --rm -t asia.gcr.io/${PROJECT_ID}/kubedemo-api:v1 kubedemo-api/
 ```
-
-## Kubernetes
-
-TODO
