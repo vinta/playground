@@ -1,0 +1,75 @@
+version: '3'
+services:
+    db:
+        image: mongo:3.6.3
+        container_name: swag-db
+        networks:
+            - swag-backend
+        ports:
+            - "27017:27017"
+        volumes:
+            - mongo-volume:/data/db
+    cache:
+        image: redis:4.0
+        container_name: swag-cache
+        networks:
+            - swag-backend
+        ports:
+            - "6379:6379"
+volumes:
+    mongo-volume:
+networks:
+    swag-backend:
+
+# version: '3'
+# services:
+#     db:
+#         image: mongo:3.6.3
+#         container_name: swag-db
+#         networks:
+#             - swag-backend
+#         ports:
+#             - "27017:27017"
+#         volumes:
+#             - mongo-volume:/data/db
+#     cache:
+#         image: redis:4.0
+#         container_name: swag-cache
+#         networks:
+#             - swag-backend
+#         ports:
+#             - "6379:6379"
+#     web:
+#         build: .
+#         container_name: swag-web
+#         env_file: .env
+#         command: .docker-assets/start-web.sh
+#         networks:
+#             - swag-backend
+#         ports:
+#             - "3000:3000"
+#             - "8000:8000"
+#         volumes:
+#             - ../swag-server-vendors:/root/.local
+#             - .:/usr/src/app
+#             - /Users:/Users
+#         depends_on:
+#             - db
+#             - cache
+#     worker:
+#         build: .
+#         container_name: swag-worker
+#         env_file: .env
+#         command: .docker-assets/start-worker.sh
+#         networks:
+#             - swag-backend
+#         volumes:
+#             - .:/usr/src/app
+#             - /Users:/Users
+#         depends_on:
+#             - db
+#             - cache
+# volumes:
+#     mongo-volume:
+# networks:
+#     swag-backend:
