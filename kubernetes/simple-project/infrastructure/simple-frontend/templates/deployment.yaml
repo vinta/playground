@@ -1,0 +1,21 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: simple-frontend
+  labels:
+    app: simple-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-frontend
+  template:
+    metadata:
+      labels:
+        app: simple-frontend
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.7.9
+        ports:
+        - containerPort: 80
