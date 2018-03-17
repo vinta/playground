@@ -8,7 +8,7 @@ RUN apk add --no-cache --virtual .build-deps \
         openssl-dev \
         zlib-dev
 
-COPY requirements.txt requirements.txt
+COPY requirements.txt .
 
 RUN pip install --user -r requirements.txt && \
     find $(python -m site --user-base) -type f -name "*.pyc" -delete && \
@@ -35,4 +35,4 @@ COPY . .
 
 EXPOSE 8000
 
-CMD python -m flask run -h 0.0.0.0 -p 8000
+CMD ["python", "-m", "flask", "run", "-h", "0.0.0.0", "-p", "8000"]

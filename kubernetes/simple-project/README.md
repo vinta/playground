@@ -28,6 +28,7 @@ You hit "simple-api-778c45c897-fl5sn" at 2018-03-11T11:57:35.319047+00:00
 
 $ kubectl delete -f infrastructure/simple-api/ -R
 
+$ docker build --rm -t asia.gcr.io/${PROJECT_ID}/simple-frontend:v1 simple-frontend/
 
 ```
 
