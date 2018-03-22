@@ -1,0 +1,14 @@
+apiVersion: skaffold/v1alpha1
+kind: Config
+build:
+  artifacts:
+  - imageName: asia.gcr.io/simple-project-198818/simple-api
+    workspace: .
+  local: {}
+deploy:
+  kubectl:
+    manifests:
+    - paths:
+      - ../infrastructure/simple-api/*
+      parameters:
+        IMAGE_NAME: asia.gcr.io/simple-project-198818/simple-api

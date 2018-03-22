@@ -6,7 +6,7 @@
 $ minikube start --cpus=4 --memory=8000
 $ eval $(minikube docker-env)
 
-$ export PROJECT_ID=albedo-157516
+$ export PROJECT_ID=simple-project-198818
 
 $ minikube ip
 192.168.99.100
@@ -23,12 +23,20 @@ NAME         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                  
 kubernetes   ClusterIP   10.96.0.1       <none>        443/TCP                      21h
 simple-api   NodePort    10.104.48.197   <none>        80:30723/TCP,443:32082/TCP   1m
 
+$ minikube service simple-api
+
 $ curl http://192.168.99.100:30723/
 You hit "simple-api-778c45c897-fl5sn" at 2018-03-11T11:57:35.319047+00:00
 
 $ kubectl delete -f infrastructure/simple-api/ -R
 
 $ docker build --rm -t asia.gcr.io/${PROJECT_ID}/simple-frontend:v1 simple-frontend/
+```
+
+## minikube with skaffold
+
+```console
+$ cd simple-api
 
 ```
 
@@ -44,7 +52,7 @@ $ gcloud container clusters create albedo \
 --num-nodes=3 \
 --machine-type=g1-small
 
-$ gcloud config set project albedo-157516 && \
+$ gcloud config set project simple-project-198818 && \
   export PROJECT_ID="$(gcloud config get-value project -q)"
 
 $ docker build --rm -t asia.gcr.io/${PROJECT_ID}/simple-api:v1 simple-api/
