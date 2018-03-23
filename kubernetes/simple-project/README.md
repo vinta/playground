@@ -13,7 +13,11 @@ $ minikube ip
 
 $ minikube dashboard
 Opening kubernetes dashboard in default browser... http://192.168.99.100:30000/
+```
 
+### simple-api
+
+```console
 $ docker build --rm -t asia.gcr.io/${PROJECT_ID}/simple-api:v1 simple-api/
 
 $ kubectl apply -f infrastructure/simple-api/ -R
@@ -29,15 +33,22 @@ $ curl http://192.168.99.100:30723/
 You hit "simple-api-778c45c897-fl5sn" at 2018-03-11T11:57:35.319047+00:00
 
 $ kubectl delete -f infrastructure/simple-api/ -R
+```
 
+### simple-frontend
+
+```console
 $ docker build --rm -t asia.gcr.io/${PROJECT_ID}/simple-frontend:v1 simple-frontend/
+
+$ kubectl apply -f infrastructure/simple-frontend/ -R
 ```
 
 ## minikube with skaffold
 
 ```console
 $ cd simple-api
-
+$ skaffold dev
+$ minikube service simple-api
 ```
 
 ## Google Kubernetes Engine
