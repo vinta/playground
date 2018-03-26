@@ -43,6 +43,14 @@ $ docker build --rm -t asia.gcr.io/${PROJECT_ID}/simple-frontend:v1 simple-front
 $ kubectl apply -f infrastructure/simple-frontend/ -R
 ```
 
+### Ingress
+
+```console
+$ vim /private/etc/hosts
+
+$ kubectl apply -f infrastructure/ingress.yaml
+```
+
 ## minikube with skaffold
 
 ```console

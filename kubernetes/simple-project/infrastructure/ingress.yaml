@@ -9,12 +9,15 @@ spec:
   - host: simple-project.com
     http:
       paths:
-      - backend:
-        serviceName: simple-frontend
-        servicePort: http
+      - path: /
+        backend:
+          serviceName: simple-frontend
+          servicePort: http
+
   - host: api.simple-project.com
     http:
       paths:
-      - backend:
-        serviceName: simple-api
-        servicePort: http
+      - path: /
+        backend:
+          serviceName: simple-api
+          servicePort: http
