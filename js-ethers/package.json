@@ -1,0 +1,12 @@
+{
+  "name": "safe-multisig-finder",
+  "version": "1.0.0",
+  "description": "Find Safe multisig contracts by owner address",
+  "main": "find-safe-multisigs.js",
+  "scripts": {
+    "start": "node find-safe-multisigs.js"
+  },
+  "dependencies": {
+    "ethers": "^6.9.0"
+  }
+}
